@@ -9,7 +9,12 @@
 /coverage
 
 # production
+# production
 /build
+dist/
+node_modules/
+v1-legacy/node_modules/
+v2-glassmorphic/node_modules/
 
 # misc
 .DS_Store
