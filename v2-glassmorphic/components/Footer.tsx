@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             href="https://www.instagram.com/_ashwin.biju/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 glass-btn rounded-xl text-primary dark:text-white hover:text-accent hover:border-accent/50 cursor-pointer"
+            className="w-11 h-11 glass-btn rounded-xl text-primary dark:text-white hover:text-accent hover:border-accent/50 cursor-pointer flex items-center justify-center"
           >
             <i className="bx bxl-instagram text-xl"></i>
           </a>
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
             href="https://x.com/4SHx1i"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 glass-btn rounded-xl text-primary dark:text-white hover:text-accent hover:border-accent/50 cursor-pointer flex items-center justify-center"
+            className="w-11 h-11 glass-btn rounded-xl text-primary dark:text-white hover:text-accent hover:border-accent/50 cursor-pointer flex items-center justify-center"
             aria-label="X Profile"
           >
             <svg
