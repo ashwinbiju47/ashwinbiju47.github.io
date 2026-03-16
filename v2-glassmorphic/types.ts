@@ -4,6 +4,7 @@ export interface Project {
   image: string;
   tags: string[];
   description: string;
+  url: string;
 }
 
 export interface ExperienceItem {
