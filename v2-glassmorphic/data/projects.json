@@ -1,0 +1,34 @@
+[
+  {
+    "title": "The Sea Learning",
+    "category": "Full-Stack Development",
+    "tags": ["Node.js", "React.js", "AWS", "EdTech"],
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+    "description": "Engineered a scalable e-learning platform featuring a robust backend architecture and responsive frontend. Handled complex course management, secure user authentication, and optimized content delivery for a seamless educational experience.",
+    "url": "https://www.thesealearning.com/"
+  },
+  {
+    "title": "CloudQlobe",
+    "category": "Frontend Development",
+    "tags": ["Next.js", "UI/UX", "SEO", "Cloud Services"],
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    "description": "Developed a high-performance, SEO-optimized frontend for a cloud communications platform. Focused on delivering sleek, intuitive dashboards and a seamless user experience tailored for modern enterprise telecom services.",
+    "url": "https://www.cloudqlobe.com/"
+  },
+  {
+    "title": "One Hand Blackjack",
+    "category": "HTML5 Game Development",
+    "tags": ["PixiJS", "WebGL", "Canvas", "Game Dev"],
+    "image": "https://images.unsplash.com/photo-1605870445919-838d190e8e1b?w=800&q=80",
+    "description": "Engineered a responsive, browser-based blackjack game leveraging WebGL and Canvas. Implemented smooth animations, real-time betting mechanics, and a highly polished UI to deliver an engaging casino experience across desktop and mobile devices.",
+    "url": "https://gameart.net/game/one-hand-blackjack/"
+  },
+  {
+    "title": "The Way of the Dead",
+    "category": "HTML5 Game Development",
+    "tags": ["PixiJS", "Slot Game", "WebGL", "Casino"],
+    "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80",
+    "description": "Developed an immersive 5x3 Ancient Egyptian-themed browser slot game featuring thrilling Lock & Win mechanics, Free Spins, and Jackpots. Engineered dynamic spin animations and expanding symbol logic using PixiJS and WebGL to ensure a high-fidelity casino experience.",
+    "url": "https://gameart.net/game/the-way-of-the-dead-2/"
+  }
+]

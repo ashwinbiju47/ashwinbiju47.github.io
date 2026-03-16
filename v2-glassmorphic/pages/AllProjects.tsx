@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Project } from '../types';
 import projectsData from '../data/projects.json';
 
 const projects: Project[] = projectsData as Project[];
-const featuredProjects = projects.slice(0, 4);
 
 const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => (
   <div
-    className="group relative overflow-hidden rounded-[2rem] glass-panel transition-all duration-300 cursor-pointer border border-white/20 dark:border-white/10 flex-shrink-0 w-[340px] sm:w-[380px]"
+    className="group relative overflow-hidden rounded-[2rem] glass-panel transition-all duration-300 cursor-pointer border border-white/20 dark:border-white/10"
     onClick={onClick}
   >
     <div className="h-56 overflow-hidden border-b border-white/20 dark:border-white/10 relative">
@@ -47,108 +46,41 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
   </div>
 );
 
-const Projects: React.FC = () => {
+const AllProjects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [translateX, setTranslateX] = useState(0);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    document.body.style.overflow = selectedProject ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [selectedProject]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      const track = trackRef.current;
-      if (!section || !track) return;
-
-      const rect = section.getBoundingClientRect();
-      const scrollableHeight = section.offsetHeight - window.innerHeight;
-      const rawProgress = Math.min(Math.max(-rect.top / scrollableHeight, 0), 1);
-
-      // Three phases: lead-in buffer → horizontal scroll → lead-out buffer
-      const LEAD_IN = 0.12;   // first 12% = vertical buffer before cards move
-      const LEAD_OUT = 0.12;  // last 12% = vertical buffer after cards stop
-
-      let horizontalProgress = 0;
-      if (rawProgress <= LEAD_IN) {
-        horizontalProgress = 0;
-      } else if (rawProgress >= 1 - LEAD_OUT) {
-        horizontalProgress = 1;
-      } else {
-        // Map the middle range to 0→1 with an ease-in-out curve
-        const t = (rawProgress - LEAD_IN) / (1 - LEAD_IN - LEAD_OUT);
-        // Smooth ease-in-out (cubic)
-        horizontalProgress = t < 0.5
-          ? 4 * t * t * t
-          : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      const maxTranslate = track.scrollWidth - window.innerWidth;
-      setTranslateX(-horizontalProgress * maxTranslate);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
-      <div ref={sectionRef} id="projects" style={{ height: '400vh' }} className="relative">
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-
+      <div className="min-h-screen pt-32 pb-28">
+        <div className="container mx-auto px-6">
           {/* Header */}
-          <div className="container mx-auto px-6 mb-10">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white mb-3 font-serif drop-shadow-sm">
-                Featured Projects
-              </h2>
-              <span className="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 font-medium">
-                Most recent work
-              </span>
-            </div>
-          </div>
-
-          {/* Card track — paddingLeft mirrors container mx-auto px-6 so first card aligns with "F" */}
-          <div className="overflow-visible">
-            <div
-              ref={trackRef}
-              className="flex gap-8"
-              style={{
-                paddingLeft: 'max(1.5rem, calc((100vw - 1280px) / 2 + 1.5rem))',
-                transform: `translateX(${translateX}px)`,
-                willChange: 'transform',
-              }}
+          <div className="mb-16">
+            <button
+              onClick={() => navigate('/')}
+              className="inline-flex items-center gap-2 mb-8 text-primary dark:text-white hover:text-accent transition-colors group"
             >
-              {featuredProjects.map((project, index) => (
-                <ProjectCard
-                  key={index}
-                  project={project}
-                  onClick={() => setSelectedProject(project)}
-                />
-              ))}
-
-              {/* View All card — appears after the last project */}
-              <div className="flex-shrink-0 w-[240px] flex items-center justify-center mr-6">
-                <button
-                  onClick={() => navigate('/all-projects')}
-                  className="group flex flex-col items-center justify-center gap-4 px-10 py-8 rounded-[2rem] glass-panel border border-white/20 dark:border-white/10 hover:border-accent/40 transition-all hover:-translate-y-1 shadow-lg w-full h-full text-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                    <i className="bx bx-grid-alt text-3xl text-accent"></i>
-                  </div>
-                  <span className="text-base font-bold font-serif text-primary dark:text-white leading-tight">View All<br/>Projects</span>
-                  <i className="bx bx-right-arrow-alt text-2xl text-accent group-hover:translate-x-1 transition-transform"></i>
-                </button>
-              </div>
-            </div>
+              <i className="bx bx-left-arrow-alt text-xl group-hover:-translate-x-1 transition-transform"></i>
+              Back
+            </button>
+            <h1 className="text-5xl md:text-6xl font-bold text-primary dark:text-white mb-3 font-serif drop-shadow-sm">
+              All Projects
+            </h1>
+            <span className="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 font-medium">
+              Complete portfolio of work
+            </span>
           </div>
 
-
+          {/* Grid of projects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -213,4 +145,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default AllProjects;

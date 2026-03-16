@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SocialSidebar from './components/SocialSidebar';
 import LinkSafetyMiddleware from './components/LinkSafetyMiddleware';
+import AllProjects from './pages/AllProjects';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -33,7 +35,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Router>
       <LinkSafetyMiddleware />
       
       <div className="ambient-bg-holder">
@@ -42,20 +44,40 @@ const App: React.FC = () => {
         <div className="blob blob-3"></div>
       </div>
 
-      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
-      <SocialSidebar />
-      
-      <main className="pb-28 md:pb-0">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Qualification />
-        <Contact />
-      </main>
+      <Routes>
+        {/* Home page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+              <SocialSidebar />
+              <main className="pb-28 md:pb-0">
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Qualification />
+                <Contact />
+              </main>
+              <Footer />
+            </>
+          }
+        />
 
-      <Footer />
-    </>
+        {/* All Projects page */}
+        <Route
+          path="/all-projects"
+          element={
+            <>
+              <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+              <AllProjects />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 
