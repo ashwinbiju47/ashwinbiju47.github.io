@@ -40,6 +40,7 @@
                         'scroll-down': 'scroll-down 2s infinite',
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
                         'blob': 'move 20s infinite alternate',
+                        'marquee': 'marquee 30s linear infinite',
                     },
                     keyframes: {
                         'scroll-down': {
@@ -53,6 +54,10 @@
                         move: {
                             'from': { transform: 'translate(0, 0) scale(1)' },
                             'to': { transform: 'translate(20px, -20px) scale(1.1)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
                         }
                     }
                 },
@@ -324,6 +329,11 @@
         .timeline-item:last-child {
             border-left: none;
         }
+
+        /* Marquee scroll */
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
     </style>
 
     <link rel="stylesheet" href="/index.css">
@@ -336,7 +346,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-cFISzAQ2.js"></script>
+  <script type="module" crossorigin src="/assets/index-DLySDuVP.js"></script>
 </head>
 
 <body class="text-gray-800 dark:text-gray-200 antialiased font-sans">
