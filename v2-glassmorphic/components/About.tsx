@@ -50,9 +50,13 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="glass-panel max-w-3xl mx-auto p-8 rounded-[2rem] border border-white/40 dark:border-white/10">
-          <p className="text-gray-700 dark:text-gray-300 leading-loose text-lg font-light text-center">
-            MERN Stack Developer, Pixi.js game developer. I create responsive, user-friendly websites and interactive web applications. I thrive on bringing ideas to life through code.
+        <div className="glass-panel max-w-3xl mx-auto p-10 rounded-[2rem] border border-white/40 dark:border-white/10 space-y-6">
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg font-light text-center">
+            I work across the full stack — designing systems, building interfaces, managing data, and deploying applications.
+          </p>
+          <hr className="border-white/20 dark:border-white/10 w-16 mx-auto" />
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg font-light text-center">
+            <span className="font-medium text-primary dark:text-white">My goal is simple: make software that works smoothly, scales well, and feels good to use.</span>
           </p>
         </div>
       </div>

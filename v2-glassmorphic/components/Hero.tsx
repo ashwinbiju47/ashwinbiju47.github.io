@@ -25,9 +25,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed font-light glass-panel p-6 rounded-2xl border-none shadow-none bg-white/10 dark:bg-white/5">
-            Creative problem solver with a keen and curious mind for new
-            technologies. Building elegant, user-centric digital solutions that
-            leave a lasting impression.
+            I turn ideas into real, working software.<br></br> Apps, systems, tools, platforms… if it can be built, I'll probably build it.
           </p>
 
           <div className="flex items-center gap-6 pt-2">

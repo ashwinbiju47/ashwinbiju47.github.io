@@ -1,5 +1,13 @@
 [
   {
+    "title": "Select VFX Studio",
+    "category": "Full-Stack Development",
+    "tags": ["Vue.js", "UI/UX","netlify"],
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+    "description": "Built a high-performance website for a global visual effects and post-production studio specializing in films, OTT platforms, commercials, and gaming. Delivered a visually immersive experience with smooth animations and a modern, cinematic design language.",
+    "url": "https://selectvfx.studio/"
+  },
+  {
     "title": "The Sea Learning",
     "category": "Full-Stack Development",
     "tags": ["Node.js", "React.js", "AWS", "EdTech"],
